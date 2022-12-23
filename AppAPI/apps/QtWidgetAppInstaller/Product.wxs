@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define ProductName="QtWidgetApp" ?>
+  <?define Company="GE Healthcare Ultrasound" ?>
+
+  <?define ExeName="QtWidgetApp.exe" ?>
+  <!-- Determine QtWidgetApp.exe version based on file Id from Files.wxs -->
+  <?define VERSION=!(bind.FileVersion.filC57227C96F5DE5964C51A757CF822F31) ?>
+
+  <!-- UpgradeCode MUST be unique for each app. Change UpgradeCode between major releases to allow side-by-side installations. -->
+  <Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.VERSION)" Manufacturer="$(var.Company)" UpgradeCode="56FC519B-487B-42F8-B29B-C818CD3EA17C">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" Description="2D/3D test application for AppAPI" />
+
+    <!-- Installer license, default folder & type -->
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\License.rtf"/>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_InstallDir" />
+
+    <!-- Disable downgrades, prevent side-by-side installations of same version -->
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." AllowSameVersionUpgrades="yes"/>
+    <!-- Embed binaries inside MSI instead of separate CAB files -->
+    <MediaTemplate EmbedCab="yes"/>
+
+    <Feature Id="ProductFeature" Title="Application" Level="1">
+      <ComponentGroupRef Id="FileList" />
+    </Feature>
+
+    <CustomAction Id="RegisterExe"
+                  Directory="INSTALLFOLDER"
+                  ExeCommand="&quot;[INSTALLFOLDER]$(var.ExeName)&quot; /regserver"
+                  Execute="deferred"
+                  Impersonate="no"
+                  />
+    <CustomAction Id="UnRegisterExe"
+                  Directory="INSTALLFOLDER"
+                  ExeCommand="&quot;[INSTALLFOLDER]$(var.ExeName)&quot; /unregserver"
+                  Execute="deferred"
+                  Impersonate="no"
+                  Return="ignore"
+                  />
+    
+    <InstallExecuteSequence>
+      <Custom Action='RegisterExe' After='InstallFiles'>NOT Installed OR REINSTALL</Custom>
+      <Custom Action='UnRegisterExe' After='InstallInitialize'>REMOVE</Custom>
+    </InstallExecuteSequence>
+  </Product>
+
+  <Fragment>
+    <!-- Default installation folder structure -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="COMPANYFOLDER" Name="$(var.Company)">
+          <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" />
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+</Wix>

@@ -1,0 +1,13 @@
+/*.o
+/Makefile
+/QtWidgetApp.dir
+/QtWidgetApp_autogen
+/x64
+/CMakeFiles
+/Debug
+/Release
+/*.vcxproj
+/*.filters
+/cmake_install.cmake
+/CMakeCache.txt
+/*_version.rc

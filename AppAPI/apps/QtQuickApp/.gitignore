@@ -1,0 +1,15 @@
+/CMakeFiles
+/Debug
+/Release
+/x64
+/QtQuickApp.dir
+/QtQuickApp_autogen
+/*.vcxproj
+/*.filters
+/translations
+*.aps
+*.qm
+/*.rc
+/cmake_install.cmake
+/qrc_*.cpp
+/test2d.qrc.depends

@@ -1,0 +1,9 @@
+/CMakeFiles
+/Debug
+/Release
+/QtWebBrowserApp.dir
+/QtWebBrowserApp_autogen
+/cmake_install.cmake
+/*.vcxproj
+/*.vcxproj.filters
+/*_version.rc

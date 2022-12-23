@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define ProductName="WinFormsApp" ?>
+  <?define Company="GE Healthcare Ultrasound" ?>
+  <?define DllName="WinFormsApp.dll" ?>
+  <!-- Determine WinFormsApp.dll version based on file Id from Files.wxs -->
+  <?define VERSION=!(bind.FileVersion.filD635F47DA59C18DAF7E57E85FBC233BA) ?>
+
+  <!-- UpgradeCode MUST be unique for each app. Change UpgradeCode between major releases to allow side-by-side installations. -->
+  <Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.VERSION)" Manufacturer="$(var.Company)" UpgradeCode="4224ed1e-2a82-4c81-8e68-63737d70f46d">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" Description="WinForms-based test application for AppAPI" />
+
+    <!-- Installer license, default folder & type -->
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\License.rtf"/>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_InstallDir" />
+
+    <!-- Disable downgrades, prevent side-by-side installations of same version -->
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." AllowSameVersionUpgrades="yes"/>
+    <!-- Embed binaries inside MSI instead of separate CAB files -->
+    <MediaTemplate EmbedCab="yes"/>
+
+    <Feature Id="ProductFeature" Title="Application" Level="1">
+      <ComponentGroupRef Id="FileList" />
+    </Feature>
+
+    <!-- Use CustomActionData to pass INSTALLFOLDER and filename to custom actions (deferred custom actions lack direct access to installer properties) -->
+    <SetProperty Id="RegisterDll" Before="RegisterDll" Value="[INSTALLFOLDER]|$(var.DllName)" Sequence="execute"/>
+    <SetProperty Id="UnRegisterDll" Before="UnRegisterDll" Value="[INSTALLFOLDER]|$(var.DllName)" Sequence="execute"/>
+
+    <CustomAction Id="RegisterDll"
+                  FileKey="fil3CA69CB46BD71E383C900C150B785E9E"
+                  JScriptCall="Register"
+                  Execute="deferred"
+                  Impersonate="no"
+                  />
+    <CustomAction Id="UnRegisterDll"
+                  FileKey="fil3CA69CB46BD71E383C900C150B785E9E"
+                  JScriptCall="UnRegister"
+                  Execute="deferred"
+                  Impersonate="no"
+                  Return="ignore"
+                  />
+    
+    <InstallExecuteSequence>
+      <Custom Action='RegisterDll' After='InstallFiles'>NOT Installed OR REINSTALL</Custom>
+      <Custom Action='UnRegisterDll' After='InstallInitialize'>REMOVE</Custom>
+    </InstallExecuteSequence>
+  </Product>
+
+  <Fragment>
+    <!-- Default installation folder structure -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="COMPANYFOLDER" Name="$(var.Company)">
+          <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" />
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+</Wix>

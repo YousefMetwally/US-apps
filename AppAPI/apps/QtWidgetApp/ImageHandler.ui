@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ImageHandler</class>
+ <widget class="QWidget" name="ImageHandler">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>923</width>
+    <height>536</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>Movie</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <widget class="QLabel" name="labelImage">
+        <property name="minimumSize">
+         <size>
+          <width>450</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_5">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QPushButton" name="pushButton_acquireMovies">
+           <property name="minimumSize">
+            <size>
+             <width>130</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Acquire</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_play">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>130</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Play</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Frame</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QScrollBar" name="frameScrollControll">
+           <property name="minimumSize">
+            <size>
+             <width>130</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>ImageHandler</sender>
+   <signal>StreamOpened(bool)</signal>
+   <receiver>pushButton_play</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>461</x>
+     <y>267</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>790</x>
+     <y>203</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImageHandler</sender>
+   <signal>FrameRangeChanged(int,int)</signal>
+   <receiver>frameScrollControll</receiver>
+   <slot>setRange(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>461</x>
+     <y>267</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>787</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImageHandler</sender>
+   <signal>FrameChanged(int)</signal>
+   <receiver>frameScrollControll</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>461</x>
+     <y>267</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>817</x>
+     <y>265</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_acquireMovies</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageHandler</receiver>
+   <slot>LoadImageSource()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>873</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>929</x>
+     <y>58</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_play</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageHandler</receiver>
+   <slot>StartStopPlayback()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>812</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>461</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_play</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageHandler</receiver>
+   <slot>UpdateFrameUI()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>855</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>920</x>
+     <y>451</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>frameScrollControll</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ImageHandler</receiver>
+   <slot>SetFrame(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>872</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>932</x>
+     <y>282</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>MovieCountChanged(int)</signal>
+  <signal>StreamsNumberChanged(int)</signal>
+  <signal>FrameRangeChanged(int,int)</signal>
+  <signal>StreamOpened(bool)</signal>
+  <signal>FrameChanged(int)</signal>
+  <slot>SetMovieCount(int)</slot>
+  <slot>SetStreamCount(int)</slot>
+  <slot>LoadImageSource()</slot>
+  <slot>UpdateFrameUI()</slot>
+  <slot>StartStopPlayback()</slot>
+  <slot>OpenStream(int)</slot>
+  <slot>NextFrame(bool)</slot>
+  <slot>SetFrame(int)</slot>
+ </slots>
+</ui>

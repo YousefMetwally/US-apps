@@ -1,0 +1,54 @@
+Limited Software License Agreement for Use of GEHC’s Ultrasound StreamClient Library by Non-Competitors
+
+This Software License Agreement (“Agreement”) contains the terms and conditions that govern your access to and use of GE Healthcare’s Ultrasound StreamClient Tools (“StreamClient”) as further detailed below, and is an agreement between GE Healthcare (“GE,” “Us”) and you or the entity on whose behalf you accept these terms. By clicking an “I Accept” button or check box presented with these terms, or by using the access credentials provided to download and/or use the StreamClient, you agree to the following terms and conditions.
+
+1. 	No Rights for GEHC’s Ultrasound Competitors
+This Agreement cannot be used by a Competitor (as defined below) to obtain any rights for downloading or using the StreamClient.
+
+2.	Definition of Terms	
+“Business Associate” shall mean such term as defined by the Health Insurance Portability and Accountability Act of 1996, Pub. Law 104-191 (Aug. 21, 1996), its implementing regulations, and the Health Information Technology for Economic and Clinical Health Act (“HITECH”) and its implementing regulations (collectively, “HIPAA”).
+“Competitor” shall mean (A) any entity that manufactures ultrasound systems, and (B) any affiliate of any such entity.
+“StreamClient” is a library with associated tools that enables receiving streamed ultrasound image data transferred in GE Healthcare’s proprietary data format.  
+“Users” include both the suppliers and receivers of data processed by the StreamClient.
+“You” and “Your” include both you as an individual, and if acting on behalf of an organization, the organization that you represent.
+“Your application” means the application owned, developed or otherwise controlled by You, for which You are requesting a credential to use the StreamClient.
+“Your customers” means all end users of Your application. 
+
+3. 	You, Your Application and Your Customers
+You represent that Your organization can enter into a legally binding agreement and that You have the authority to enter into a legally binding agreement on behalf of the organization you represent as a developer of an application.
+To obtain an access credential to use StreamClient, You agree to provide your contact information and if representing an organization, to identify it and provide its contact information, and to keep this information up to date.
+You are responsible for the actions of Your application, management of any data it obtains through StreamClient as well as Your relationships with Your customers. 
+
+4. 	Us and StreamClient
+You agree that GE Healthcare is the owner of StreamClient.  Entering into this Agreement does not give You any rights to GE intellectual property (other than authorized use of StreamClient), or the rights to use any GE trademarks, brands or logos, or to indicate in any way that GE Healthcare endorses Your application. 
+Any feedback by You related to StreamClient is voluntary. You are not entitled to receive any compensation in any form for such feedback and GE owns any feedback that gets incorporated into StreamClient or any other GE product. GE may modify, add to or discontinue individual StreamClient capabilities at any time without notice.
+
+5. 	Non-exclusivity of Limited License
+By downloading the StreamClient and incorporating it into Your application, You hereby agree to these terms and conditions  for a revocable, non-exclusive, limited license to use the StreamClientin Your application. Entering into this Agreement does not give You any license or rights to use of the StreamClient apart from Your application. You and GE Healthcare may enter other separate agreements to use StreamClient with Your application.
+This license allows for You to provide a limited sublicense of StreamClient to Your customers solely for use with Your application when distributed to Your customers.  You are responsible for entering into written agreements with Your customers to prevent any further distribution or use of StreamClient apart from Your application.  No further sublicensing rights are provided by this Agreement.
+
+6. 	Compliance
+You agree to use StreamClient only in ways that comply with applicable laws and regulations and to require Your customers to do the same. You will comply with applicable laws, rules and regulations concerning business practices, taxation and privacy (including use of personal, privileged or confidential third-party information).  You may not: (i) rent, lease, sub-license, loan or transfer StreamClient; (ii) alter, remove or obscure any proprietary or copyright notice in StreamClient; or (iii) modify, reverse engineer, decompile, disassemble, create derivative works or otherwise discover any process or technique inherent in StreamClient.
+
+7. 	Security 
+You agree to securely use, store and manage the access credentials to StreamClient provided to You by GE or by one of its customers or partners, and to prevent them from being utilized by others inappropriately or without authorization.  Should Your credentials become compromised, You agree to notify GE Healthcare that they have been compromised at security@ge.com.
+You agree to secure Your application and any sensitive data (including patient health data and other individually identifiable data) that it accesses through StreamClient in accord with industry standard security measures, and to report promptly any unauthorized data access through StreamClient to GE (at security@ge.com) and to any affected users (including both suppliers and receivers) of that data.
+
+8. 	Right to Access Data 
+GE Healthcare supports open access to data.  If You store individually identifiable data (including patient health information) obtained through StreamClient or gather and collect other data associated with an individually identifiable user, You agree to enable Your customers to export that data to other systems, simply and easily and without loss of fidelity.  You will require any other parties to whom you supply such data to do the same. 
+
+9. 	Modification of Terms   
+You agree that GE Healthcare may change the terms and conditions of this Agreement and will notify You of such changes through electronic communication via the email address You maintain upon acceptance of these terms and conditions. Your continued use of this site and/or StreamClient following such notification constitutes Your acceptance of these revised terms and conditions. Modifications will also be published at https://github.com/GEUltrasound/StreamClient
+
+10. 	Termination 
+You may terminate this Agreement by providing written notice to GE Healthcare at Your discretion.  GE Healthcare may terminate this Agreement by providing a 30-day written notice to You at the email address You maintain.  After termination, You agree that You will discontinue the use of StreamClient, but will continue to be responsible for those terms under Section 5.
+
+11. 	Governing Law; Disputes; Limitation of Liability 
+The law of the state of New York will govern any dispute between You and GE Healthcare.  
+StreamClient IS PROVIDED “AS IS” WITH NO WARRANTY. OTHER THAN FOR BREACHES OF CONFIDENTIALITY, NEITHER PARTY SHAL BE OBLIGATED, LIABLE OR RESPONSIBLE FOR ANY LOSS OR DAMAGES INCLUDING, BUT NOT LIMITED TO, (A) DIRECT OR INDIRECT DAMAGES, LOSS OF DATA OF ANY KIND, INCIDENTAL OR CONSEQUENTIAL DAMAGES SUCH AS INTERRUPTION OF BUSINESS OR LOSS OF REVENUE OR PROFITS, (B) INFRINGENENT OF THIRD PARTY INTELLECTUAL PROPERTY RIGHTS OR (C) ANY OTHER EXPENSES EXPERIENCED BY THE OTHER PARTY OR ANY THIRD PARTY ARISING OUT OF THE USE OR ANY ERROR, FAILURE OR INADEQUACY OF THE PERFORMANCE OF THE LIBRARIES UNDER THIS AGREEMENT.  THIS LIMITATION OF LIABILITY SHALL SURVIVE THE TERMINATION OR EXPIRATION OF THIS AGREEMENT.  
+The limitation of liability and exclusion of damages shall apply even if the limited remedies fail of their essential purpose.
+
+12. 	HIPAA Compliance
+Access to StreamClient may be provided by GE Healthcare (e.g., through this web site), Your customers (e.g., through their own software implementations), or its customers (e.g., through GE products they have installed that use the Libraries).  GE partners and customers may require additional terms and conditions for access to StreamClient.
+Your use of StreamClient provided by GE Healthcare does not create a Business Associate relationship between GE Healthcare, or its customers, partners or StreamClient customers providing access to StreamClient and You, unless otherwise specified in writing by the organization providing such access.  
+You may need to enter into a Business Associate Agreement with GE Healthcare before transmitting protected health information.

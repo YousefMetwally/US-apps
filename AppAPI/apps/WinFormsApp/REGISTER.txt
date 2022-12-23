@@ -1,0 +1,13 @@
+How to register manually:
+
+Either:
+* Open a x64 Visual Studio developer command prompt with administrative privileges
+* Run "regasm /codebase WinFormsApp.dll"
+Or:
+* Open a command window with administrative privileges
+* Add C:\Windows\Microsoft.NET\Framework64\<version> (.Net installation path) to PATH
+* Run "regasm /codebase WinFormsApp.dll"
+
+
+The .Net framework installation path can be found in the following registry key as documented on https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed :
+* HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\InstallPath
